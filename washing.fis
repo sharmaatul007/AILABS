@@ -1,0 +1,52 @@
+[System]
+Name='washing'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Load_Dirtiness'
+Range=[0 10]
+NumMFs=4
+MF1='vd':'trimf',[0 1 3]
+MF2='md':'trimf',[2.67985350809561 2.99985350809561 4.21985350809561]
+MF3='ld':'trimf',[3.7132767925983 5.7532767925983 7.7532767925983]
+MF4='nd':'trimf',[7.25 7.78 10.0192752505783]
+
+[Input2]
+Name='Load_Volume'
+Range=[0 10]
+NumMFs=3
+MF1='fl':'trimf',[0 2 4]
+MF2='ml':'trimf',[2.97 5 6.99691595990748]
+MF3='ll':'trimf',[6.31 8 10]
+
+[Output1]
+Name='Washing_Time'
+Range=[0 10]
+NumMFs=4
+MF1='vlot':'trimf',[-2.179 1.987 6.154]
+MF2='lot':'trimf',[-0.562 3.605 7.771]
+MF3='mt':'trimf',[1.77 5.92 10.12]
+MF4='lit':'trapmf',[3.862 7.862 8.862 12.86]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 1, 1 (1) : 1
+2 2, 3 (1) : 1
+2 3, 2 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 4 (1) : 1
+4 1, 4 (1) : 1
+4 2, 4 (1) : 1
+4 3, 4 (1) : 1
